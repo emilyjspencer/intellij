@@ -17,12 +17,15 @@ public class BankAccount {
         this.accountType = typeOfAccount;
     }
 
-    public double deposit(double amount, boolean branch) {
+    public double deposit(double amount) {
         balance += amount;
         return balance;
     }
 
-    public double withdraw(double amount, boolean branch) {
+    public double withdraw(double amount) {
+        if (amount > balance) {
+            throw new IllegalArgumentException("Unable to withdraw. Funds unavailable");
+        }
         balance -= amount;
         return balance;
     }
