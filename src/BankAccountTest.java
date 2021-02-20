@@ -30,7 +30,6 @@ public class BankAccountTest {
     @org.junit.Test
     public void isCheckingAccount_true() {
         BankAccount bankaccount = new BankAccount("Jane", "Doe", 120.0, BankAccount.CHECKINGACCOUNT);
-        boolean result = bankaccount.isCheckingAccount();
-        assertEquals(true,  result);
+        assertTrue( bankaccount.isCheckingAccount());
     }
 }
