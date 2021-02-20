@@ -28,6 +28,16 @@ public class BankAccountTest {
     }
 
     @Test
+    public void depositTooMuch() {
+       Throwable exception = assertThrows(
+               IllegalArgumentException.class, () -> {
+                   double result = bankaccount.deposit(1200.0);
+               }
+       );
+        assertEquals("Unable to deposit more than 1000 in one go", exception.getMessage());
+    }
+
+    @Test
     public void withdraw() throws Exception {
         double result = bankaccount.withdraw(20.0);
         assertEquals(80.0, result, 0);

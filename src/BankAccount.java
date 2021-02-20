@@ -18,6 +18,9 @@ public class BankAccount {
     }
 
     public double deposit(double amount) {
+        if ( amount > 1000) {
+            throw new IllegalArgumentException("Unable to deposit more than 1000 in one go");
+        }
         balance += amount;
         return balance;
     }
