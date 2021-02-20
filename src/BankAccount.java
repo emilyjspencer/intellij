@@ -4,11 +4,17 @@ public class BankAccount {
     private String lastName;
     private double balance;
 
+    public static final int CHECKINGACCOUNT = 1;
+    public static final int SAVINGSACCOUNT = 2;
 
-    public BankAccount(String firstName, String lastName, double balance) {
+    private int accountType;
+
+
+    public BankAccount(String firstName, String lastName, double balance, int typeOfAccount) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.balance = balance;
+        this.accountType = typeOfAccount;
     }
 
     public double deposit(double amount, boolean branch) {
@@ -23,5 +29,13 @@ public class BankAccount {
 
     public double getBalance() {
         return balance;
+    }
+
+    public boolean isSavingsAccount() {
+        return accountType == SAVINGSACCOUNT;
+    }
+
+    public boolean isCheckingAccount() {
+        return accountType == CHECKINGACCOUNT;
     }
 }
